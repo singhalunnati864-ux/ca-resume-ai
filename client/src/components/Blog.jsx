@@ -11,7 +11,7 @@ export default function Blog({ showToast }) {
   ];
 
   return (
-    <div style={{ paddingTop: 80, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh', textAlign:'center' }}>
+    <div style={{ paddingTop: 120, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh', textAlign:'center' }}>
       <h2 style={{ fontSize: 32, marginBottom: 8 }}>Articles & Insights</h2>
       <p style={{ color: '#aaa', marginBottom: 40 }}>A complete guide to succeeding in your CA articleship journey</p>
 

@@ -40,7 +40,7 @@ export default function AdminDashboard({ showToast }) {
   const tdStyle = { padding: 12, borderBottom: '1px solid var(--d3)', fontSize: 14 };
 
   return (
-    <div style={{ paddingTop: 80, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh' }}>
+    <div style={{ paddingTop: 120, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh' }}>
       <h2 style={{ fontSize: 32, marginBottom: 32 }}>Admin Dashboard</h2>
       
       <div className="card mb-8">

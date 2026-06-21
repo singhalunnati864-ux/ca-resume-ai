@@ -2,13 +2,14 @@ import React from 'react';
 import { FileText, Home, MessageCircle, Sparkles, TrendingUp, UserPlus } from 'lucide-react';
 
 export default function Nav({ page, setPage, isPro, user, logout }) {
+  const hasBoughtPlan = user && user.plan && user.plan !== 'free';
   const tabs = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'builder', label: 'Builder', icon: FileText },
     { id: 'tools', label: 'Prep AI', icon: MessageCircle },
     { id: 'stipend', label: 'Stipend', icon: TrendingUp },
     { id: 'pricing', label: 'Plans', icon: Sparkles },
-  ];
+  ].filter(tab => tab.id !== 'pricing' || !hasBoughtPlan);
 
   return (
     <nav className="navbar-shell">
@@ -40,10 +41,18 @@ export default function Nav({ page, setPage, isPro, user, logout }) {
 
         <div className="navbar-actions">
           {isPro && <span className="navbar-pro">Pro</span>}
-
           {user ? (
             <div className="navbar-user">
-              <span>{user.name}</span>
+              <button
+                className={`navbar-profile-btn${page === 'profile' ? ' navbar-profile-btn-active' : ''}`}
+                onClick={() => setPage('profile')}
+                title="View Profile Dashboard"
+              >
+                <span className="navbar-avatar-bubble">
+                  {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                </span>
+                <span className="navbar-username-text">{user.name}</span>
+              </button>
               <button
                 className="navbar-ghost-btn"
                 onClick={() => {

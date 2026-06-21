@@ -19,7 +19,7 @@ export default function ResumeBuilder({ data, setData, step, setStep, isPro, set
   }, [step]);
 
   return (
-    <div style={{ paddingTop: 40, paddingLeft: 20, paddingRight: 20, paddingBottom: 60, maxWidth: '100%', margin: '0 auto', minHeight: '100vh' }}>
+    <div style={{ paddingTop: 120, paddingLeft: 20, paddingRight: 20, paddingBottom: 60, maxWidth: '100%', margin: '0 auto', minHeight: '100vh' }}>
       
       {/* Wizard Progress Bar */}
       <div className="flex items-center justify-between mb-8" style={{maxWidth:600, margin:'0 auto 32px'}}>

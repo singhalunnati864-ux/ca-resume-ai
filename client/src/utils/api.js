@@ -172,3 +172,14 @@ export async function fetchAdminRevenue(pass) {
   if (res.status === 401) throw new Error("Unauthorized");
   return res.json();
 }
+
+export async function updateProfile(data) {
+  const res = await fetch(`${BASE}/api/auth/profile`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw await res.json();
+  return res.json();
+}

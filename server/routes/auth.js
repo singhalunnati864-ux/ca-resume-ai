@@ -88,7 +88,16 @@ router.post('/verify-email', async (req, res, next) => {
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
     setAuthCookie(res, token);
 
-    res.json({ success: true, user: { name: user.name, email: user.email, plan: user.plan } });
+    res.json({
+      success: true,
+      user: {
+        name: user.name,
+        email: user.email,
+        plan: user.plan,
+        isGoogleUser: !!user.googleId,
+        createdAt: user.createdAt,
+      },
+    });
   } catch (error) {
     next(error);
   }
@@ -150,7 +159,16 @@ router.post('/login', async (req, res, next) => {
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
     setAuthCookie(res, token);
 
-    res.json({ success: true, user: { name: user.name, email: user.email, plan: user.plan } });
+    res.json({
+      success: true,
+      user: {
+        name: user.name,
+        email: user.email,
+        plan: user.plan,
+        isGoogleUser: !!user.googleId,
+        createdAt: user.createdAt,
+      },
+    });
   } catch (error) {
     next(error);
   }
@@ -228,7 +246,56 @@ router.get('/me', authenticateToken, async (req, res, next) => {
   try {
     const user = await User.findById(req.user.userId);
     if (!user) return res.status(404).json({ error: 'User not found' });
-    res.json({ name: user.name, email: user.email, phone: user.phone, plan: user.plan });
+    res.json({
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      plan: user.plan,
+      isGoogleUser: !!user.googleId,
+      createdAt: user.createdAt,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// ─── UPDATE USER PROFILE ─────────────────────────────────────────────────────
+router.put('/profile', authenticateToken, async (req, res, next) => {
+  try {
+    const { name, phone, password, newPassword } = req.body;
+    const user = await User.findById(req.user.userId);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    if (name) user.name = name;
+    if (phone !== undefined) user.phone = phone;
+
+    if (newPassword) {
+      if (user.googleId) {
+        return res.status(400).json({ error: 'Google accounts do not support manual password changes' });
+      }
+      if (!password) {
+        return res.status(400).json({ error: 'Current password is required to change password' });
+      }
+      const valid = await user.comparePassword(password);
+      if (!valid) return res.status(401).json({ error: 'Incorrect current password' });
+      if (newPassword.length < 8) {
+        return res.status(400).json({ error: 'New password must be at least 8 characters long' });
+      }
+      user.passwordHash = newPassword;
+    }
+
+    await user.save();
+    res.json({
+      success: true,
+      user: {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        plan: user.plan,
+        isGoogleUser: !!user.googleId,
+        createdAt: user.createdAt,
+      },
+    });
   } catch (error) {
     next(error);
   }

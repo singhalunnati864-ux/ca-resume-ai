@@ -1,1 +1,0 @@
-mongodb+srv://caresume:cabuzz2026@ca-resume-ai.tdpz8gj.mongodb.net/ca_resume_ai?retryWrites=true&w=majority

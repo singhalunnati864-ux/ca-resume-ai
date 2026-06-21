@@ -47,8 +47,8 @@ export default function LoginPage({ setUser, setPage, showToast, onVerifyNeeded 
       <p className="auth-subheading">Log in to access your CA Resume AI dashboard.</p>
 
       <form onSubmit={handleSubmit} className="card auth-card flex-col gap-4 text-left">
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address</label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address</label>
           <input
             type="email"
             value={email}
@@ -58,9 +58,9 @@ export default function LoginPage({ setUser, setPage, showToast, onVerifyNeeded 
           />
         </div>
 
-        <div>
+        <div className="form-field">
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-            <label style={{ fontSize: 12, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Password</label>
+            <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Password</label>
             <span
               onClick={() => setPage('forgot-password')}
               style={{ fontSize: 12, color: '#a78bfa', cursor: 'pointer', fontWeight: 500 }}

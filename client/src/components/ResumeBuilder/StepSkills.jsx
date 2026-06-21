@@ -19,10 +19,10 @@ export default function StepSkills({ data, setData, setStep }) {
   };
 
   const TagInput = ({ label, field, placeholder }) => {
-    const [val, setVal] = useState('');
-    return (
-      <div className="mb-4">
-        <label style={{fontSize:12, color:'#aaa', marginBottom:4, display:'block'}}>{label}</label>
+      const [val, setVal] = useState('');
+      return (
+      <div className="form-field form-field-compact mb-4">
+        <label className="form-label" style={{color:'#aaa'}}>{label}</label>
         <div style={{
           display:'flex', flexWrap:'wrap', gap:8, 
           background:'rgba(255,255,255,0.05)', border:'1px solid var(--t3)', 
@@ -53,7 +53,7 @@ export default function StepSkills({ data, setData, setStep }) {
     <div className="card">
       <h3 className="mb-4" style={{fontSize:24}}>Skills & Extras</h3>
       
-      <div className="grid grid-cols-2 gap-4">
+      <div className="form-grid-two">
         <div><TagInput label="Technical Skills" field="technicalSkills" placeholder="e.g. IND-AS, Tax, GST... (Press Enter)"/></div>
         <div><TagInput label="IT Skills" field="itSkills" placeholder="e.g. SAP, Tally..."/></div>
         <div><TagInput label="Soft Skills" field="softSkills" placeholder="e.g. Communication..."/></div>

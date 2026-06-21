@@ -94,12 +94,12 @@ Return ONLY a raw JSON object. No markdown, no code fences, no explanation.
   const sourceColor = { local: 'var(--l2)', groq: '#63b3ed', gemini: '#c084fc' };
 
   return (
-    <div style={{ paddingTop: 80, paddingLeft: 24, paddingRight: 24, maxWidth: 820, margin: '0 auto', minHeight: '100vh', paddingBottom: 60 }}>
+    <div style={{ paddingTop: 120, paddingLeft: 24, paddingRight: 24, maxWidth: 820, margin: '0 auto', minHeight: '100vh', paddingBottom: 60 }}>
       <h2 style={{ fontSize: 32, marginBottom: 6 }}>🎙️ AI Interview Prep</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: 24 }}>Practice firm-specific CA Articleship questions</p>
 
       {/* Controls */}
-      <div className="card flex gap-4 mb-6" style={{ alignItems: 'center' }}>
+      <div className="card flex gap-4 mb-6 prep-controls-card" style={{ alignItems: 'center' }}>
         <select value={iFirm} onChange={e => setIFirm(e.target.value)} style={{ flex: 1 }}>
           {FIRMS.map(f => <option key={f} value={f}>{f}</option>)}
         </select>
@@ -110,6 +110,7 @@ Return ONLY a raw JSON object. No markdown, no code fences, no explanation.
           ✨ Generate 6 Questions
         </button>
       </div>
+
 
       {/* Firm context banner */}
       {firmContext && iQs.length > 0 && (

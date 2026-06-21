@@ -3,15 +3,15 @@ import React from 'react';
 export default function Templates({ setPage, isPro, setShowPayM }) {
   const tpls = [
     { n: "Standard ATS", tag: "Free", at: 96 },
-    { n: "Big 4 Executive", tag: "Pro ₹199", at: 98 },
-    { n: "Modern CA", tag: "Pro ₹199", at: 94 },
-    { n: "Minimal Clean", tag: "Pro ₹199", at: 95 },
+    { n: "Big 4 Executive", tag: "Pro ₹299", at: 98 },
+    { n: "Modern CA", tag: "Pro ₹299", at: 94 },
+    { n: "Minimal Clean", tag: "Pro ₹299", at: 95 },
     { n: "Corporate", tag: "Free", at: 93 },
-    { n: "CA Creative", tag: "Pro ₹199", at: 91 }
+    { n: "CA Creative", tag: "Pro ₹299", at: 91 }
   ];
 
   return (
-    <div style={{ paddingTop: 80, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh', textAlign:'center' }}>
+    <div style={{ paddingTop: 120, paddingLeft: 24, paddingRight: 24, maxWidth: 1000, margin: '0 auto', minHeight: '100vh', textAlign:'center' }}>
       <h2 style={{ fontSize: 32, marginBottom: 8 }}>📋 Resume Templates</h2>
       <p style={{ color: '#aaa', marginBottom: 40 }}>Select a template optimized for Big 4 ATS parsers</p>
 

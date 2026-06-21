@@ -20,7 +20,7 @@ export default function PaymentModal({ type, onClose, startPay }) {
   ];
 
   const features = isPro ? proFeatures : toolsFeatures;
-  const price = isPro ? "₹199" : "₹50";
+  const price = isPro ? "₹299" : "₹50";
 
   return (
     <div 

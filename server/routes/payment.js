@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/order', authenticateToken, async (req, res, next) => {
   try {
     const { type } = req.body;
-    const amount = type === 'pro' ? 19900 : 5000;
+    const amount = type === 'pro' ? 29900 : 5000;
 
     const razorpay = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,
@@ -55,7 +55,7 @@ router.post('/verify', authenticateToken, async (req, res, next) => {
           userId: user._id,
           email: user.email,
           plan: type,
-          amount: type === 'pro' ? 199 : 50,
+          amount: type === 'pro' ? 299 : 50,
           paymentId: razorpay_payment_id,
           orderId: razorpay_order_id,
         });

@@ -66,23 +66,23 @@ export default function RegisterPage({ setUser, setPage, showToast, onVerifyNeed
       <p className="auth-subheading">Sign up to build your Big 4 resume powered by AI.</p>
 
       <form onSubmit={handleSubmit} className="card auth-card flex-col gap-4 text-left">
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Full Name</label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Full Name</label>
           <input value={name} onChange={e => setName(e.target.value)} placeholder="Rahul Sharma" required />
         </div>
 
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address</label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address</label>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="rahul@example.com" required />
         </div>
 
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Phone <span style={{ color: '#475569' }}>(optional)</span></label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Phone <span style={{ color: '#475569' }}>(optional)</span></label>
           <input value={phone} onChange={e => setPhone(e.target.value)} placeholder="9876543210" />
         </div>
 
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Password</label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Password</label>
           <div style={{ position: 'relative' }}>
             <input
               type={showPw ? 'text' : 'password'}
@@ -116,8 +116,8 @@ export default function RegisterPage({ setUser, setPage, showToast, onVerifyNeed
           )}
         </div>
 
-        <div>
-          <label style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6, display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Confirm Password</label>
+        <div className="form-field">
+          <label className="form-label" style={{ color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Confirm Password</label>
           <input
             type="password"
             value={confirm}

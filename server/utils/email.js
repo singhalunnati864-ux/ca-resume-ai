@@ -31,7 +31,7 @@ const emailWrapper = (content) => `
       ${content}
     </div>
     <div style="background:#111120; padding:20px 40px; text-align:center; border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="margin:0; color:#555; font-size:12px;">© 2025 CA Resume AI · Built for CA aspirants</p>
+      <p style="margin:0; color:#555; font-size:12px;">© 2026 CA Resume AI · Built for CA aspirants</p>
       <p style="margin:4px 0 0; color:#444; font-size:11px;">If you didn't request this, please ignore this email.</p>
     </div>
   </div>
